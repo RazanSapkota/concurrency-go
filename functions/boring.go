@@ -5,9 +5,9 @@ import (
 	"time"
 )
 
-func Booring(msg string) {
-	for i := 0; i < 10; i++ {
-		fmt.Println(msg, i)
+func Booring(msg string, c chan string) {
+	for i := 0; ; i++ {
+		c <- fmt.Sprintf("%s %d", msg, i)
 		time.Sleep(time.Second)
 	}
 }
