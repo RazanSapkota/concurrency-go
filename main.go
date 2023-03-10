@@ -7,9 +7,12 @@ import (
 )
 
 func main() {
-	c := functions.Booring("booring")
+	john := functions.Booring("john")
+	ana := functions.Booring("ana")
+
 	for i := 0; i < 5; i++ {
-		fmt.Printf("You say:%q\n", <-c)
+		fmt.Println(<-john)
+		fmt.Println(<-ana)
 	}
 	fmt.Println("I am exiting")
 }
