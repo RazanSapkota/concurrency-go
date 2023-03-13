@@ -9,12 +9,12 @@ import (
 
 func main() {
 	c := functions.Display("john")
-
+	timeout := time.After(5 * time.Second)
 	for {
 		select {
 		case s := <-c:
 			fmt.Println(s)
-		case <-time.After(1 * time.Second):
+		case <-timeout:
 			fmt.Println("Time over")
 			return
 		}

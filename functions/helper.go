@@ -14,7 +14,6 @@ func Display(msg string) <-chan string {
 		for i := 0; ; i++ {
 			c <- fmt.Sprintf("%s %d", msg, i)
 			t := time.Duration(rand.Intn(1.1e3))
-			fmt.Println(t)
 			time.Sleep(t * time.Millisecond)
 		}
 	}()
