@@ -7,12 +7,10 @@ import (
 )
 
 func main() {
-	john := functions.Booring("john")
-	ana := functions.Booring("ana")
+	c := functions.FanIn(functions.Display("john"), functions.Display("ana"))
 
-	for i := 0; i < 5; i++ {
-		fmt.Println(<-john)
-		fmt.Println(<-ana)
+	for i := 0; i < 10; i++ {
+		fmt.Println(<-c)
 	}
 	fmt.Println("I am exiting")
 }
