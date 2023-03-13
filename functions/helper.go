@@ -9,10 +9,13 @@ import (
 // here this func is returning channel "chan string" with "<-"sign making this returned channel as only receiving type not sending type
 func Display(msg string) <-chan string {
 	c := make(chan string)
+	rand.Seed(time.Now().Unix())
 	go func() {
 		for i := 0; ; i++ {
 			c <- fmt.Sprintf("%s %d", msg, i)
-			time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
+			t := time.Duration(rand.Intn(1.1e3))
+			fmt.Println(t)
+			time.Sleep(t * time.Millisecond)
 		}
 	}()
 	return c
